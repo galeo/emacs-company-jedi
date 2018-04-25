@@ -64,6 +64,9 @@
       (put-text-property 0 1
                          :fullname (plist-get completion :fullname)
                          candidate)
+      (put-text-property 0 1
+                         :word (plist-get completion :word)
+                         candidate)
       candidate)))
 
 (defun company-jedi-candidates (callback)
