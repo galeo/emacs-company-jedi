@@ -61,6 +61,9 @@
       (put-text-property 0 1
                          :description (plist-get completion :description)
                          candidate)
+      (put-text-property 0 1
+                         :fullname (plist-get completion :fullname)
+                         candidate)
       candidate)))
 
 (defun company-jedi-candidates (callback)
@@ -77,7 +80,9 @@
 
 (defun company-jedi-annotation (candidate)
   "Return company annotation string for a CANDIDATE."
-  (format "[%s]" (get-text-property 0 :symbol candidate)))
+  (format "%s %s"
+          (get-text-property 0 :fullname candidate)
+          (get-text-property 0 :symbol candidate)))
 
 (defun company-jedi-doc-buffer (candidate)
   "Return a company documentation buffer from a CANDIDATE."
