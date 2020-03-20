@@ -87,7 +87,7 @@
 (defun company-jedi-annotation (candidate)
   "Return company annotation string for a CANDIDATE."
   (format "%s %s"
-          (get-text-property 0 :fullname candidate)
+          (or (get-text-property 0 :fullname candidate) "")
           (get-text-property 0 :symbol candidate)))
 
 (defun company-jedi-doc-buffer (candidate)
